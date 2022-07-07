@@ -1,0 +1,495 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  min-height: 100vh;
+  font-family: "Poppins";
+  cursor: none;
+}
+
+.cursor {
+  z-index: 0;
+  position: absolute;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cursor .textCursor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.cursor .textCursor span {
+  position: absolute;
+  left: 50%;
+  text-transform: uppercase;
+  transform-origin: 0 2.5em;
+}
+
+.point {
+  z-index: 3;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #000;
+  transition: height 0.3s ease-in-out;
+}
+
+.point-active {
+  height: 20px;
+  width: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 0px;
+  min-height: 100vh;
+}
+
+.gridRea {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 0px;
+  min-height: 100vh;
+}
+
+.notShow {
+  grid-template-columns: repeat(3, 1fr);
+  transition: 0.3s ease-in-out;
+}
+
+.show {
+  grid-template-columns: repeat(6, 1fr);
+  transition: 0.3s ease-in-out;
+}
+.show .left {
+  grid-column: 1;
+}
+.show .center {
+  grid-column: 2/6;
+}
+.show .right {
+  grid-column: 6;
+}
+
+footer, header {
+  z-index: 2;
+  position: sticky;
+  width: 100%;
+  height: 6.33vh;
+  background-color: #000;
+}
+
+header {
+  top: 0;
+  left: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  bottom: 0;
+  left: 0;
+}
+
+.container {
+  width: 100%;
+  min-height: 87.34vh;
+}
+
+.left, .center, .right {
+  background-color: #FFF;
+  min-height: 100%;
+}
+
+.animContainer {
+  visibility: hidden;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+}
+.animContainer .animLeft, .animContainer .animCenter, .animContainer .animRight {
+  background-color: #000;
+}
+.animContainer .animLeft {
+  grid-column: 1/2;
+}
+.animContainer .animCenter {
+  grid-column: 2/3;
+}
+.animContainer .animRight {
+  grid-column: 3/4;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 2px;
+  background-color: #FFF;
+}
+.line .animText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  font-weight: bold;
+  font-family: "P22 FLW Exhibition";
+}
+
+@media screen and (min-width: 990px) {
+  .animText {
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 990px) {
+  .animText {
+    font-size: 1em;
+  }
+}
+main {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+main section {
+  height: 87.34vh;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main section .hi {
+  font-size: 4em;
+  font-family: "P22 FLW Exhibition";
+}
+main section .name {
+  font-size: 3em;
+  line-height: 0.8em;
+}
+main section .name strong {
+  font-weight: 600;
+}
+main section .adj {
+  font-weight: 100;
+  font-style: italic;
+}
+main section .slogan {
+  font-size: 1.2em;
+}
+main section h2 {
+  font-size: 2em;
+  font-family: "P22 FLW Exhibition";
+  font-weight: 700;
+  margin-bottom: 0.2em;
+}
+main section .bio {
+  width: 80%;
+  font-size: 1.1em;
+  font-weight: 400;
+  margin-bottom: 0.3em;
+}
+main section .cv {
+  z-index: 15;
+  width: fit-content;
+  font-weight: 100;
+  font-style: italic;
+  color: #000;
+  border-bottom: 1px dashed #2c2c2c;
+}
+main section .deconame {
+  position: relative;
+  width: fit-content;
+}
+main section .deconame #deco1 {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .btnCross {
+  transform: rotate(45deg);
+}
+.footer .footerBtn {
+  width: 1em;
+}
+.footer .leftText, .footer .rightText {
+  font-weight: 200;
+  font-style: italic;
+  margin: 0 1em;
+}
+
+.portfolio {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.portfolio .rea {
+  position: relative;
+  padding: 8em 0;
+}
+.portfolio .rea h2 {
+  font-family: "P22 FLW Exhibition";
+  font-size: 3em;
+  font-weight: 600;
+}
+.portfolio .rea #arrowRea {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+.portfolio .imgMiniPortfolio {
+  z-index: 0;
+  max-width: 100%;
+  margin-bottom: 3em;
+}
+.portfolio .imgMiniPortfolio:hover {
+  transform: rotate(-3deg);
+}
+
+.show-grid {
+  display: none;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1px;
+  grid-row-gap: 0px;
+  width: 100%;
+  min-height: 87.34vh;
+}
+
+.leftShow, .rightShow {
+  background-color: #fff;
+}
+
+.leftShow {
+  grid-column: 1/2;
+}
+
+.rightShow {
+  grid-column: 2/9;
+  display: flex;
+}
+.rightShow .image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.rightShow .image .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5em;
+  margin-bottom: 2em;
+}
+.rightShow .image .navigation .navs-detail {
+  width: 6em;
+  padding: 0.5em 1em;
+  border-radius: 20%;
+  transition: all 0.3s ease-in-out;
+}
+.rightShow .image .navigation .navs-detail:hover {
+  background-color: #000;
+  border-radius: 0;
+}
+.rightShow .image .navigation .navs-detail:hover path {
+  fill: #FFF;
+}
+.rightShow .image .navigation #nav-detail-right {
+  transform: rotate(180deg);
+}
+.rightShow .image .navigation #nav-detail-right:hover {
+  transform: rotate(185deg);
+}
+.rightShow .image .navigation #nav-detail-left:hover {
+  transform: rotate(5deg);
+}
+.rightShow .image .img-proj {
+  max-width: 100%;
+}
+.rightShow .info {
+  background-color: #000;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  padding-right: 1em;
+}
+.rightShow .info .logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+.rightShow .info .logos .logo {
+  width: 2em;
+  margin: 1em 0;
+}
+.rightShow .info .info-text {
+  width: 60%;
+}
+.rightShow .info .info-text p {
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=style.css.map */
