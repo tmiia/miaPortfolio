@@ -56,22 +56,13 @@ let canva = document.querySelector('body');
   all_links.forEach(link => {
     link.addEventListener("pointerenter", function(){
       cursorPoint.className = "point point-active";
+      cursor.className = "cursor cursor-active";
     })
     link.addEventListener("pointerleave", function() {
       cursorPoint.className = "point";
+      cursor.className = "cursor";
     })
   });
-
-let blackElt = document.querySelectorAll(".black");
-
-blackElt.forEach(black =>{
-  black.addEventListener("pointerenter", ()=>{
-    cursorPoint.style.backgroundColor = "#FFF";
-  })
-  black.addEventListener("pointerleave", ()=>{
-    cursorPoint.style.backgroundColor = "#000";
-  })
-})
 
 //INTRO ANIMATION
 window.onload = function visitors(){
@@ -122,8 +113,6 @@ btn.addEventListener("click", ()=>{
   while (i<1){
     tl.to(".header", {height: "50vh", duration: .3})
     tl.to(".footer", {height: "50vh", duration: .3}, "-=0.3")
-    // tl.to(".header", {height: "6.33vh", duration: .3})
-    // tl.to(".footer", {height: "6.33vh", duration: .3}, "-=0.3")
     i++
   }
   setTimeout(function() {
@@ -136,7 +125,12 @@ btn.addEventListener("click", ()=>{
   }, 600);
 })
 
-//Realisations
+
+const windowWidth = window.innerWidth;
+
+if(windowWidth > 700){
+
+  //Realisations
 let img = document.querySelectorAll(".imgMiniPortfolio");
 let grid = document.querySelector(".grid");
 let gridShow = document.querySelector(".show-grid");
@@ -157,11 +151,11 @@ function realiDetail(project) {
     let infoContainer = document.querySelector("#info");
     let infoLogos = document.querySelector(".logos");
     // Changer de système et mettre des array clé valeur à la place
-    const project_list = [[1, "Lorem 1", "html,css"],
-                          [2, "Lorem 2", "js,html,css"],
-                          [3, "Lorem 3", "js,html,css"],
+    const project_list = [[1, "My first Ruby on rails web application. I created a chat where anyone with an account can discuss about a MMI project. To do this website I use Ruby on rails, HTML, a CSS processor and a litle bit of JavaScript. And I also design it on Figma. ", "rails,html,sass,figma"],
+                          [2, "This is a blog about solidarity. It was created for an university project. With my team, we had to code from scratch a fonctional blog in PHP. I was one of the back-end developer of this project and I coded the fonctions use to get, update and delete informations of the database. Moreover, I made with my team the wireframe of the website with figma.", "html,sass,php,figma"],
+                          [3, "Redesign of the Accor Arena website. It was made for an university project. With my team, we had to realize the audit of the original website to note what was good and what needed to be corrected. We also did a benchmark to see what the other websites of the same type made. Once all this was made, we realized the graphical charter, wireframe and the design of the website. And then I coded the slider and some animation on the site (paralax effect...)", "html,sass,js,jekyll"],
                           [4, "Lorem 4", "js,html,css"],
-                          [5, "Lorem 5", "js,html,css"],
+                          [5, "This is a web design made with Figma. I wanted to create a design inspired by rap, street.", "figma"],
                           [6, "Lorem 6", "js,html,css"],
                           [7, "Lorem 7", "figma"],]
 
@@ -206,7 +200,6 @@ navs.forEach(btn => {
         logo.remove()
       });
       navigate(listProjectAvaillable, "right", projectId);
-      // realiDetail((parseInt(projectId)+ 1));
     }
     else{
       infoText.remove();
@@ -215,7 +208,6 @@ navs.forEach(btn => {
         logo.remove()
       });
       navigate(listProjectAvaillable, "left", projectId);
-      // realiDetail((parseInt(projectId)+ 1));
     }
   })
 });
@@ -243,4 +235,6 @@ function navigate(list, sens, project){
       }
     }
   }
+}
+
 }

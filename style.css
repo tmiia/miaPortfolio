@@ -144,80 +144,23 @@ body {
   background-color: #000;
   min-height: 100vh;
   font-family: "Poppins";
-  cursor: none;
 }
 
-.cursor {
-  z-index: 0;
-  position: absolute;
-  width: 5em;
-  height: 5em;
-  border-radius: 50%;
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cursor .textCursor {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.footer .btnCross {
+  transform: rotate(45deg);
 }
-.cursor .textCursor span {
-  position: absolute;
-  left: 50%;
-  text-transform: uppercase;
-  transform-origin: 0 2.5em;
+.footer .footerBtn {
+  width: 1em;
 }
-
-.point {
-  z-index: 3;
-  position: absolute;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: #000;
-  transition: height 0.3s ease-in-out;
-}
-
-.point-active {
-  height: 20px;
-  width: 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 1px;
-  grid-row-gap: 0px;
-  min-height: 100vh;
-}
-
-.gridRea {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-column-gap: 1px;
-  grid-row-gap: 0px;
-  min-height: 100vh;
-}
-
-.notShow {
-  grid-template-columns: repeat(3, 1fr);
-  transition: 0.3s ease-in-out;
-}
-
-.show {
-  grid-template-columns: repeat(6, 1fr);
-  transition: 0.3s ease-in-out;
-}
-.show .left {
-  grid-column: 1;
-}
-.show .center {
-  grid-column: 2/6;
-}
-.show .right {
-  grid-column: 6;
+.footer .leftText, .footer .rightText {
+  font-weight: 200;
+  font-style: italic;
+  margin: 0 1em;
 }
 
 footer, header {
@@ -247,59 +190,6 @@ footer {
   min-height: 87.34vh;
 }
 
-.left, .center, .right {
-  background-color: #FFF;
-  min-height: 100%;
-}
-
-.animContainer {
-  visibility: hidden;
-  z-index: 10;
-  position: fixed;
-  width: 100%;
-}
-.animContainer .animLeft, .animContainer .animCenter, .animContainer .animRight {
-  background-color: #000;
-}
-.animContainer .animLeft {
-  grid-column: 1/2;
-}
-.animContainer .animCenter {
-  grid-column: 2/3;
-}
-.animContainer .animRight {
-  grid-column: 3/4;
-}
-
-.line {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 2px;
-  background-color: #FFF;
-}
-.line .animText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #FFF;
-  font-weight: bold;
-  font-family: "P22 FLW Exhibition";
-}
-
-@media screen and (min-width: 990px) {
-  .animText {
-    font-size: 3em;
-  }
-}
-@media screen and (max-width: 990px) {
-  .animText {
-    font-size: 1em;
-  }
-}
 main {
   width: 100%;
   height: 100%;
@@ -360,136 +250,287 @@ main section .deconame #deco1 {
   right: -20px;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footer .btnCross {
-  transform: rotate(45deg);
-}
-.footer .footerBtn {
-  width: 1em;
-}
-.footer .leftText, .footer .rightText {
-  font-weight: 200;
-  font-style: italic;
-  margin: 0 1em;
-}
-
-.portfolio {
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-}
-.portfolio .rea {
+.rea {
   position: relative;
   padding: 8em 0;
 }
-.portfolio .rea h2 {
+.rea h2 {
   font-family: "P22 FLW Exhibition";
   font-size: 3em;
   font-weight: 600;
 }
-.portfolio .rea #arrowRea {
+.rea #arrowRea {
   position: absolute;
   right: 0;
   transform: translateY(-50%);
 }
-.portfolio .imgMiniPortfolio {
-  z-index: 0;
-  max-width: 100%;
-  margin-bottom: 3em;
-}
-.portfolio .imgMiniPortfolio:hover {
-  transform: rotate(-3deg);
-}
 
-.show-grid {
-  display: none;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 1px;
-  grid-row-gap: 0px;
-  width: 100%;
-  min-height: 87.34vh;
+@media screen and (min-width: 990px) {
+  .animText {
+    font-size: 3em;
+  }
 }
+@media screen and (max-width: 990px) {
+  .animText {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 700px) {
+  body {
+    cursor: none;
+  }
 
-.leftShow, .rightShow {
-  background-color: #fff;
-}
+  .cursor {
+    z-index: 0;
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cursor .textCursor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .cursor .textCursor span {
+    position: absolute;
+    left: 50%;
+    text-transform: uppercase;
+    transform-origin: 0 2.5em;
+  }
 
-.leftShow {
-  grid-column: 1/2;
-}
+  .cursor-active {
+    opacity: 0;
+  }
 
-.rightShow {
-  grid-column: 2/9;
-  display: flex;
+  .point {
+    z-index: 3;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: height 0.3s ease-in-out;
+    transform-origin: center;
+    mix-blend-mode: difference;
+  }
+
+  .point-active {
+    height: 25px;
+    width: 25px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 0px;
+    min-height: 100vh;
+  }
+
+  .gridRea {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 0px;
+    min-height: 100vh;
+  }
+
+  .notShow {
+    grid-template-columns: repeat(3, 1fr);
+    transition: 0.3s ease-in-out;
+  }
+
+  .show {
+    grid-template-columns: repeat(6, 1fr);
+    transition: 0.3s ease-in-out;
+  }
+  .show .left {
+    grid-column: 1;
+  }
+  .show .center {
+    grid-column: 2/6;
+  }
+  .show .right {
+    grid-column: 6;
+  }
+
+  .left, .center, .right {
+    background-color: #FFF;
+    min-height: 100%;
+  }
+
+  .animContainer {
+    visibility: hidden;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+  }
+  .animContainer .animLeft, .animContainer .animCenter, .animContainer .animRight {
+    background-color: #000;
+  }
+  .animContainer .animLeft {
+    grid-column: 1/2;
+  }
+  .animContainer .animCenter {
+    grid-column: 2/3;
+  }
+  .animContainer .animRight {
+    grid-column: 3/4;
+  }
+
+  .line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 2px;
+    background-color: #FFF;
+  }
+  .line .animText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-weight: bold;
+    font-family: "P22 FLW Exhibition";
+  }
+
+  .portfolio {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .portfolio .imgMiniPortfolio {
+    z-index: 0;
+    max-width: 100%;
+    margin-bottom: 3em;
+  }
+  .portfolio .imgMiniPortfolio:hover {
+    transform: rotate(-3deg);
+  }
+
+  .show-grid {
+    display: none;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 0px;
+    width: 100%;
+    min-height: 87.34vh;
+  }
+
+  .leftShow, .rightShow {
+    background-color: #fff;
+  }
+
+  .leftShow {
+    grid-column: 1/2;
+  }
+
+  .rightShow {
+    grid-column: 2/9;
+    display: flex;
+  }
+  .rightShow .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .rightShow .image .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5em;
+    margin-bottom: 2em;
+  }
+  .rightShow .image .navigation .navs-detail {
+    width: 6em;
+    padding: 0.5em 1em;
+    border-radius: 20%;
+    transition: all 0.3s ease-in-out;
+  }
+  .rightShow .image .navigation .navs-detail:hover {
+    background-color: #000;
+    border-radius: 0;
+  }
+  .rightShow .image .navigation .navs-detail:hover path {
+    fill: #FFF;
+  }
+  .rightShow .image .navigation #nav-detail-right {
+    transform: rotate(180deg);
+  }
+  .rightShow .image .navigation #nav-detail-right:hover {
+    transform: rotate(185deg);
+  }
+  .rightShow .image .navigation #nav-detail-left:hover {
+    transform: rotate(5deg);
+  }
+  .rightShow .image .img-proj {
+    max-width: 100%;
+  }
+  .rightShow .info {
+    background-color: #000;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    padding-right: 1em;
+  }
+  .rightShow .info .logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+  .rightShow .info .logos .logo {
+    width: 2em;
+    margin: 1em 0;
+  }
+  .rightShow .info .info-text {
+    width: 60%;
+  }
+  .rightShow .info .info-text p {
+    font-weight: 300;
+  }
 }
-.rightShow .image {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
-.rightShow .image .navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5em;
-  margin-bottom: 2em;
-}
-.rightShow .image .navigation .navs-detail {
-  width: 6em;
-  padding: 0.5em 1em;
-  border-radius: 20%;
-  transition: all 0.3s ease-in-out;
-}
-.rightShow .image .navigation .navs-detail:hover {
-  background-color: #000;
-  border-radius: 0;
-}
-.rightShow .image .navigation .navs-detail:hover path {
-  fill: #FFF;
-}
-.rightShow .image .navigation #nav-detail-right {
-  transform: rotate(180deg);
-}
-.rightShow .image .navigation #nav-detail-right:hover {
-  transform: rotate(185deg);
-}
-.rightShow .image .navigation #nav-detail-left:hover {
-  transform: rotate(5deg);
-}
-.rightShow .image .img-proj {
-  max-width: 100%;
-}
-.rightShow .info {
-  background-color: #000;
-  color: #FFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  padding-right: 1em;
-}
-.rightShow .info .logos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-}
-.rightShow .info .logos .logo {
-  width: 2em;
-  margin: 1em 0;
-}
-.rightShow .info .info-text {
-  width: 60%;
-}
-.rightShow .info .info-text p {
-  font-weight: 300;
+@media screen and (max-width: 700px) {
+  body {
+    cursor: initial;
+  }
+
+  .animContainer, .cursor, .point, .left, .right, .show-grid, #nav-detail-left, #nav-detail-right {
+    display: none;
+  }
+
+  .container {
+    background-color: #FFF;
+  }
+  .container .center {
+    width: 100%;
+    height: max-content;
+  }
+  .container .center .portfolio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container .center .portfolio .pj {
+    margin: 0.5em 0;
+  }
+  .container .center .portfolio .pj img {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
